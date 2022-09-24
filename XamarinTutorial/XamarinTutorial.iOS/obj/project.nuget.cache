@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "65rPUlU5OOpjw+k5NdBL8nW27qXYp6YqOQtoWo85F3OobpCxiVDkPhA3g/wHZWEvc3klBt3OzowCmgppzSzUXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Josh\\Documents\\Coding Projects\\XamarinTutorial\\XamarinTutorial\\XamarinTutorial.iOS\\XamarinTutorial.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Josh\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\xamarin.forms\\5.0.0.2515\\xamarin.forms.5.0.0.2515.nupkg.sha512"
+  ],
+  "logs": []
+}

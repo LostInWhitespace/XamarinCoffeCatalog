@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:XamarinTutorial.ViewModels"
+             x:Class="XamarinTutorial.Views.CoffeeEquipmentPage"
+             xmlns:model="clr-namespace:XamarinTutorial.Models"
+             Title="{Binding Title}"
+            BackgroundColor= "Gray"
+            x:Name="CoffeePage"
+            >
+    <ContentPage.BindingContext>
+        <viewmodels:CoffeeEquipmentViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+
+        
+        <ListView 
+                  x:Name="CoffeeLists"
+                  ItemSelected="ListView_ItemSelected"
+                  ItemTapped="ListView_ItemTapped"
+                  CachingStrategy="RecycleElement"
+                  BackgroundColor="Transparent"
+                  ItemsSource="{Binding CoffeeGroups}"
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding Key}"
+                  SeparatorColor="Red"
+                  SeparatorVisibility="None"
+            
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  RefreshControlColor="SaddleBrown"
+                  HasUnevenRows="True">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Coffee">
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Favorite" CommandParameter ="{Binding .}" Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}"/>
+                            <MenuItem Text="Delete" Clicked="Delete_Clicked"/>
+
+                        </ViewCell.ContextActions>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Image}"
+                                           
+                                           WidthRequest="65"/>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label VerticalOptions ="Center"
+                                               FontSize="Large"
+                                               Text="{Binding Name}"
+                                               TextColor="Black">
+                                        </Label>
+                                        <Label VerticalOptions ="Center"
+                                               FontSize="Medium"
+                                               Text="{Binding Roaster}"
+                                               TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="Center"
+                           Text="Coffee of The World"
+                           TextColor="Black">
+                    </Label>
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button  Text="Load More"/>
+                </StackLayout>
+            </ListView.Footer>
+        </ListView>
+
+        
+        
+    </ContentPage.Content>
+
+    
+</ContentPage>
